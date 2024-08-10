@@ -1,5 +1,5 @@
 {
-  "name": "expressjs-structure",
+  "name": "Task Management",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -19,11 +19,19 @@
   },
   "homepage": "https://github.com/geshan/expressjs-structure#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
     "express": "^4.17.1",
-    "mysql2": "^2.3.3"
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.2",
+    "mysql2": "^2.3.3",
+    "validatorjs": "^3.22.1"
   },
   "devDependencies": {
-    "jest": "^27.4.5"
+    "jest": "^27.4.5",
+    "nodemon": "^3.1.4"
   },
   "jest": {
     "testEnvironment": "node",

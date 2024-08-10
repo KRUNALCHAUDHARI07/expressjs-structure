@@ -1,15 +1,22 @@
-const env = process.env;
-const fs = require('fs');
-const db = {
-    host: env.DB_HOST,
-    user: env.DB_USER,
-    password: env.DB_PASSWORD,
-    database: env.DB_NAME || 'programming_languages',
-    port: env.DB_PORT || 3306,
-    ssl: {
-      mode: 'VERIFY_IDENTITY',
-      ca: fs.readFileSync('/etc/ssl/cert.pem', 'utf-8'),
-    }
-};
+const dotenv = require("dotenv");
+const { mongoose } = require("./constants");
 
-module.exports = db;
+dotenv.config();
+const user = process.env.DB_USER_NAME;
+const password = process.env.DB_PASSWORD;
+const database = process.env.DB_NAME;
+
+//connect database
+const connectDb = mongoose
+  .connect(
+    `mongodb+srv://${user}:${password}@cluster0.vfcil.mongodb.net/${database}`
+  )
+  .then(() => {
+    console.log("database connected successfully");
+  })
+  .catch((error) => {
+    console.log("error: ", error);
+    console.log("database connection error 123");
+  });
+
+module.exports = connectDb;
